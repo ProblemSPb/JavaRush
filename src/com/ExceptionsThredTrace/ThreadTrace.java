@@ -39,3 +39,23 @@ public class ThreadTrace {
         return stackTraceElements[2].getLineNumber();
     }
 }
+
+/*
+как пользоваться StackTraceElement:
+     - создаем стек типа StackTraceElement
+StackTraceElement[] ste = Thread.currentThread().getStackTrace();
+
+Имя стека  ste. И заносим в него весь стектрейс (это все, что справа от знака "=")
+    - в return вызываем метод getLineNumber() у второго элемента стека.
+ste[2].getLineNumber()
+
+
+В общем-то все)))
+
+Единственное, что нужно отметить это за что отвечают разные элементы стека:
+[0] - getStackTrace
+[1] - метод где находится данный стектрейс
+[2] - метод, вызвавший [1]
+...
+[x] - последний элемент стека всегда main
+ */
